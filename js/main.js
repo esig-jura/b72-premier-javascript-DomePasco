@@ -1,5 +1,23 @@
 "use strict";
 
+//Récupérer le prénom du visiteur
+//const prenom = prompt("Quel est ton prénom ?");
+//alert("Bienvenu " + prenom);
+
+// Changer d'unité la température entrée par l'utilisateur
+let celsius = Number(prompt("Entrez la température en °C :"));
+if (isNaN(celsius)) {
+    alert("Entrez un nombre !");
+} else {
+    let farenheit = celsius * 9/5 + 32;
+    alert(`${celsius}°C => ${farenheit}°F`);
+}
+
+
+
+
+
+
 // alert("Bonjour le monde");
 let nom = "Domenico";
 
@@ -45,6 +63,11 @@ const inputCommentaire = document.querySelector("#commentaire");
 //écouter l'envoi du formulaire
 form.addEventListener("submit", function ajouterCommentaire(event){
     event.preventDefault(); //stop le comportement par défaut
+    //Si commentaire vide, avertir utilisateur
+    if (inputCommentaire.value === ""){
+        alert("Commentaire vide !");
+        return; // Stoppe l'événement
+    }
     //ajoute le contenu du champ commentaire à la liste
     olCommentaires.innerHTML += "<li>" + inputCommentaire.value + "</li>";
     // Vide le champ commentaire
